@@ -1,36 +1,23 @@
-// Patient Sequelize Model
+// Facility Sequelize Model
 
 module.exports = function(sequelize, DataTypes) {
-  var Patient = sequelize.define("Patient", {
+  var Facility = sequelize.define("Facility", {
     name: {
       type: DataTypes.STRING
     },
-    age: {
+    location: {
       type: DataTypes.INTEGER
-    },
-    weight: {
-      type: DataTypes.INTEGER
-    },
-    chair_hours: {
-      type: DataTypes.INTEGER
-    },
-    diagnosis: {
-      type: DataTypes.TEXT
     }
   });
-
-  Patient.associate = function(models) {
-    Patient.belongsTo(models.Nurse, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-    Patient.hasOne(models.Patient, {
+  // Associate each facility to have many cushions
+  Facility.associate = function(models) {
+    Facility.hasMany(models.Cushion, {
       foreignKey: {
         allowNull: false
       }
     });  
   };
 
-  return Patient;
+  return Facility;
 };
+

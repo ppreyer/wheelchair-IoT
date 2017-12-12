@@ -5,23 +5,29 @@ module.exports = function(sequelize, DataTypes) {
     name: {
       type: DataTypes.STRING
     },
-    total_compressions: {
-      type: DataTypes.INTEGER
+    facility_location: {
+      type: DataTypes.STRING
     },
-    usage: {
-      type: DataTypes.INTEGER
-    },
-    compressions_left: {
-        type: DataTypes.INTEGER
-      }
+    spring_rate: {
+      type: DataTypes.INTEGER, defaultValue: 100
+    }
   });
 
   Cushion.associate = function(models) {
-    Cushion.belongsTo(models.Patient, {
+    // Associate each cushion to have many sensor datapoints
+    Cushion.hasMany(models.Sensor, {
       foreignKey: {
         allowNull: false
       }
     });
+    // Associate each cushion to belong to one facility
+    Cushion.belongsTo(models.Facility, {
+      foreignKey: {
+        allowNull: {
+          allowNull: false
+        };
+      }
+    })
   };
   return Cushion;
 };

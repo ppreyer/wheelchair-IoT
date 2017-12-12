@@ -2,16 +2,21 @@
 var db = require("../models");
 
 module.exports = function(app) {
+  // Render html routes for app
   app.get("/home", function(req, res) {
-    return res.render("nurses");
+    return res.render("home");
   });
 
-  app.get("/patient-form", function(req, res) {
-    return res.render("patient-form");
+  app.get("/new-cushion", function(req, res) {
+    return res.render("new-cushion");
   });
 
-  app.get("/patient-info", function(req, res) {
-    return res.render("patient-info");
+  app.get("/facilities", function(req, res) {
+    return res.render("facilities");
+  });
+
+  app.get("/cushion-info", function(req, res) {
+    return res.render("cushion-info");
   });
 
 };
