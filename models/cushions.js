@@ -2,8 +2,8 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Cushion = sequelize.define("Cushion", {
-    name: {
-      type: DataTypes.STRING
+    scanner_number: {
+      type: DataTypes.INTEGER
     },
     facility_location: {
       type: DataTypes.STRING
@@ -16,18 +16,10 @@ module.exports = function(sequelize, DataTypes) {
   Cushion.associate = function(models) {
     // Associate each cushion to have many sensor datapoints
     Cushion.hasMany(models.Sensor, {
-      foreignKey: {
-        allowNull: false
-      }
     });
     // Associate each cushion to belong to one facility
     Cushion.belongsTo(models.Facility, {
-      foreignKey: {
-        allowNull: {
-          allowNull: false
-        };
-      }
-    })
+    });
   };
   return Cushion;
 };

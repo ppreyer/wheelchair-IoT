@@ -12,12 +12,8 @@ module.exports = function(sequelize, DataTypes) {
   // Associate each facility to have many cushions
   Facility.associate = function(models) {
     Facility.hasMany(models.Cushion, {
-      foreignKey: {
-        allowNull: false
-      }
     });  
-  };
-
+  };  
   return Facility;
-};
+}
 
