@@ -2,11 +2,11 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Facility = sequelize.define("Facility", {
-    name: {
-      type: DataTypes.STRING
-    },
+    // name: {
+    //   type: DataTypes.STRING
+    // },
     location: {
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     }
   });
   // Associate each facility to have many cushions

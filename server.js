@@ -30,6 +30,7 @@ app.set("view engine", "handlebars");
 
 require("./controllers/html-routes.js")(app);
 require("./controllers/cushion-routes.js")(app);
+require("./controllers/facilities.js")(app);
 
 // Sync to local MySQL DB and start server
 db.sequelize.sync({
