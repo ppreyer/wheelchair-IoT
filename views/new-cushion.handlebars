@@ -1,6 +1,12 @@
 <h1>Create a new cushion here!</h1>
 
 <div class="container">
+  <div>
+  {{#each cushions}}
+    <p>{{this.scanner_number}}</p>
+    <p>{{this.facility_location}}</p>
+  {{/each}}
+  </div>
   <div class="row">
     <div class="col-md-6">
       <div class="input-group">

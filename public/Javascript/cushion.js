@@ -7,11 +7,13 @@ $(document).ready(function() {
   $(document).on("click", ".submit", addCushion);
   $(document).on("click", ".update", editCushion);
 
+});
+
 function addCushion(event) {
   event.preventDefault();
-  var scanner = $("#scan-number").val();
+  var scanner = $("#scan-number").val().trim();
   console.log("SCANNER", scanner);
-  var location = $("#location").val();
+  var location = $("#location").val().trim();
   console.log("LOCATION", location);
   var newCushion = {
     scanner_number: scanner,
@@ -27,8 +29,8 @@ function addCushion(event) {
 
 function editCushion(event) {
   event.preventDefault();
-  var editScanner = $("#edit-scan-number").val();
-  var editLocation = $("#edit-location").val();
+  var editScanner = $("#edit-scan-number").val().trim();
+  var editLocation = $("#edit-location").val().trim();
   var newCushion = {
     scanner_number: editScanner,
     facility_location: editLocation
@@ -45,5 +47,3 @@ function editCushion(event) {
     // }
   });
 };
-
-});

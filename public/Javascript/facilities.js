@@ -2,17 +2,22 @@ $(document).ready(function() {
   $(document).on("click", ".facility-submit", addFacility);
 
 function addFacility(event) {
+  event.preventDefault();
   var location = $("#facility-location").val();
-  console.log("LOCATION", location);
   var newFacility = {
     location: location
   };
-  console.log("NEW CUSH", newFacility);
-  $.post("/facilities", newFacility).then(function(data) {
-    $(".facility").val("");
-    // location.reload();
-    console.log("CUSH ADDED", data);
-  });
+  $.post("/home", newFacility, getFacilities);
+  $("#facility-location").val("");
+};
+
+function getFacilities() {
+  console.log("I got here");
+    $.get("/home", function(err, data) {
+        // burgers = data;
+        console.log('DATA', data);
+        location.reload();
+    });
 };
 
 });
