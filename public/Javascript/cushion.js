@@ -6,9 +6,21 @@ $(document).ready(function() {
 
   $(document).on("click", ".submit", addCushion);
   $(document).on("click", ".update", editCushion);
-  $(".dropdown-toggle").dropdown();
+  $(document).on("click", ".cushion-info", displayCushionInfo);
 
 });
+
+function displayCushionInfo(event) {
+  event.preventDefault();
+  var cushionId = this.id;
+  console.log("ID", cushionId);
+  var cushionObject = {
+    id: cushionId
+  }
+  $.post("/cushion-info", cushionObject).then(function(data) {
+    
+  });
+}
 
 function addCushion(event) {
   event.preventDefault();

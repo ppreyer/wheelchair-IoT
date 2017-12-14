@@ -2,8 +2,9 @@
 <div>
   {{#each facilities}}
     <p>{{this.location}}</p>
-    {{#each facilities.Cushions}}
+    {{#each this.Cushions}}
     <p>{{this.scanner_number}}</p>
+    <button type="button" class="btn btn-primary cushion-info" id="{{this.id}}">Show Cushion</button>
     {{/each}}
   {{/each}}
 </div>

@@ -42,6 +42,22 @@ module.exports = function(app) {
     });
   });
 
+  app.post("/cushion-info", function(req, res) {
+    db.Cushion.findAll({}).then(function(result) {
+      return res.json(result);
+    });
+  });
+
+  app.get("/cushion-info", function(req, res) {
+    db.Cushion.findAll({
+      where: {
+        id: req.body.id
+      }
+    }).then(function(result) {
+      return res.json(result);
+    });
+  });
+
   app.put("/new-cushion/:id"), function(req, res) {
     convertStringToInt(req.body.scanner_number);
     db.Cushion.update(req.body, 

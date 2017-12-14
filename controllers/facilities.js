@@ -19,6 +19,7 @@ module.exports = function(app) {
       var hbsObject = {
         facilities: result
       }
+      // return res.json(result);
       return res.render("facilities", hbsObject);
     });
   });
