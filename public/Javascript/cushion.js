@@ -16,11 +16,12 @@ function addCushion(event) {
   console.log("SCANNER", scanner);
   var location = $("#location").val().trim();
   console.log("LOCATION", location);
+  var facilityId = $(".facility-id").val().trim();
   // var facilityId = $("#facility-id").val().trim();
   var newCushion = {
     scanner_number: scanner,
-    facility_location: location
-    // FacilityId: facilityId
+    facility_location: location,
+    FacilityId: facilityId
   };
   console.log("NEW CUSH", newCushion);
   $.post("/new-cushion", newCushion).then(function(data) {

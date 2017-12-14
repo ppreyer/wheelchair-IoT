@@ -12,6 +12,17 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/facilities", function(req, res) {
+    db.Facility.findAll({
+      include: [db.Cushion]
+    }).then(function(result) {
+      var hbsObject = {
+        facilities: result
+      }
+      return res.render("facilities", hbsObject);
+    });
+  });
+
   app.post("/home", function(req, res) {
     var newFacility = {
       location: req.body.location

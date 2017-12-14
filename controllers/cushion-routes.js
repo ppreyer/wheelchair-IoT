@@ -29,11 +29,12 @@ module.exports = function(app) {
   // Add a new cushion to database
   app.post("/new-cushion", function(req, res) {
     convertStringToInt(req.body.scanner_number);
-    // convertStringToInt(req.body.FacilityId);
+    convertStringToInt(req.body.FacilityId);
+    console.log("BODY", req.body.FacilityId);
     var newCushion = {
       scanner_number: req.body.scanner_number,
-      facility_location: req.body.facility_location
-      // FacilityId: req.body.FacilityId
+      facility_location: req.body.facility_location,
+      FacilityId: req.body.FacilityId
     }
     db.Cushion.create(newCushion).then(function(result) {  
       console.log("NEW", result)

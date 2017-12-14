@@ -13,9 +13,9 @@ module.exports = function(app) {
   //   return res.render("new-cushion");
   // });
 
-  app.get("/facilities", function(req, res) {
-    return res.render("facilities");
-  });
+  // app.get("/facilities", function(req, res) {
+  //   return res.render("facilities");
+  // });
 
   // app.get("/cushion-info", function(req, res) {
   //   return res.render("cushion-info");

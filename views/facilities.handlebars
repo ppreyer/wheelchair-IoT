@@ -1,6 +1,9 @@
 <h1>Display Local Facility Data Here!</h1>
 <div>
-  {{#each facilities}};
-    {{this.location}}
+  {{#each facilities}}
+    <p>{{this.location}}</p>
+    {{#each facilities.Cushions}}
+    <p>{{this.scanner_number}}</p>
+    {{/each}}
   {{/each}}
 </div>
