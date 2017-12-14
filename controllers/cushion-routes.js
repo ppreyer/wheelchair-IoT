@@ -1,14 +1,27 @@
 var db = require("../models");
 
+console.log('LOAD cushion-routes.js');
+
 module.exports = function(app) {
   
-  app.get("/new-cushion", function(req, res) {
-    console.log("I got here");
-    db.Cushion.findAll({}).then(function(result) {
-      console.log("FIND", result);
-      var hbsObject = {
-        cushions: result
+  app.get("/new-cushion", function (req, res, next) {
+     db.Facility.findAll({}).then(function(result) {
+      var facilityObject = {
+        facilities: result
       }
+      res.locals.result = result;
+      console.log(facilityObject);
+     next()
+    });
+  },
+    function(req, res) {
+
+    db.Cushion.findAll({}).then(function(result) {
+      var hbsObject = {
+        cushions: result,
+        facilities: res.locals.result
+      }
+      console.log();
       return res.render("new-cushion", hbsObject);
     });
   });
@@ -16,9 +29,11 @@ module.exports = function(app) {
   // Add a new cushion to database
   app.post("/new-cushion", function(req, res) {
     convertStringToInt(req.body.scanner_number);
+    // convertStringToInt(req.body.FacilityId);
     var newCushion = {
       scanner_number: req.body.scanner_number,
       facility_location: req.body.facility_location
+      // FacilityId: req.body.FacilityId
     }
     db.Cushion.create(newCushion).then(function(result) {  
       console.log("NEW", result)

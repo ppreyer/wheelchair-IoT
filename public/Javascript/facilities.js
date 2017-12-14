@@ -16,7 +16,7 @@ function getFacilities() {
     $.get("/home", function(err, data) {
         // burgers = data;
         console.log('DATA', data);
-        location.reload();
+        window.location.reload();
     });
 };
 

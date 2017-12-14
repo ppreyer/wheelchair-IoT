@@ -4,12 +4,13 @@ module.exports = function(app) {
   // Add a new facility to database
 
   app.get("/home", function(req, res) {
-    db.Facility.findAll({}).then(function(data) {
-      console.log("ALL", data);
-      return res.json(data);
-      });
-      // return res.render("facilities", hbsObject);
+    db.Facility.findAll({}).then(function(result) {
+      var hbsObject = {
+        facilities: result
+      };
+      return res.render("home", hbsObject);
     });
+  });
 
   app.post("/home", function(req, res) {
     var newFacility = {

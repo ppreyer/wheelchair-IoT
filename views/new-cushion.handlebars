@@ -1,12 +1,20 @@
 <h1>Create a new cushion here!</h1>
 
 <div class="container">
+ 
   <div>
   {{#each cushions}}
     <p>{{this.scanner_number}}</p>
     <p>{{this.facility_location}}</p>
   {{/each}}
   </div>
+
+<div>
+  {{#each facilities}}
+    <p>{{this.location}}</p>
+  {{/each}}
+</div>
+ 
   <div class="row">
     <div class="col-md-6">
       <div class="input-group">
@@ -17,17 +25,31 @@
         <span class="input-group-addon">@</span>
         <input type="text" class="form-control cushion"  id="location" placeholder="Facility Location"  aria-describedby="sizing-addon2">
       </div>
+{{!--       <div class="input-group">
+        <span class="input-group-addon">@</span>
+        <input type="text" class="form-control cushion"  id="facility-id" placeholder="Facility ID"  aria-describedby="sizing-addon2">
+      </div> --}}
+
+
+
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Facility ID
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+      <li role="presentation" class="divider"></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>    
+    </ul>
+  </div><br>
+
       <button type="button" class="btn btn-primary submit">Add Cushion</button>
 
       <div class="input-group">
         <span class="input-group-addon">@</span>
         <input type="text" class="form-control edit" id="edit-scan-number" placeholder="Scanner Number"  aria-describedby="sizing-addon2">
       </div>
-      <div class="input-group">
-        <span class="input-group-addon">@</span>
-        <input type="text" class="form-control edit"  id="edit-location" placeholder="Facility Location"  aria-describedby="sizing-addon2">
-      </div>
-
       <button type="button" class="btn btn-primary update">Update Cushion</button>
 
     </div>
