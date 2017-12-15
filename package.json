@@ -18,10 +18,13 @@
   },
   "homepage": "https://github.com/ppreyer/wheelchair-IoT#readme",
   "dependencies": {
+    "@covalent/data": "^0.7.1",
     "body-parser": "^1.18.2",
     "chai": "^4.1.2",
+    "covalent-data": "^0.3.0",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
+    "highcharts": "^6.0.4",
     "mocha": "^4.0.1",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.1",

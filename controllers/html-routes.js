@@ -17,8 +17,12 @@ module.exports = function(app) {
   //   return res.render("facilities");
   // });
 
-  // app.get("/cushion-info", function(req, res) {
-  //   return res.render("cushion-info");
-  // });
+  app.get("/cushion-info", function(req, res) {
+    return res.render("cushion-info");
+  });
+
+app.get("/dummy-data", function(req, res) {
+    return res.render("dummy-data");
+  });
 
 };

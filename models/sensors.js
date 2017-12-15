@@ -1,7 +1,7 @@
 // Nurse Sequelize Models
 module.exports = function(sequelize, DataTypes) {
   var Sensor = sequelize.define("Sensor", {
-    compression_value: {
+    spring_rate: {
         type: DataTypes.INTEGER
       }
   });

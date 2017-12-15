@@ -42,25 +42,16 @@ module.exports = function(app) {
     });
   });
 
- app.post("/cushion-info", function (req, res, next) {
+ app.post("/cushion-info", function (req, res) {
+  convertStringToInt(req.body.id);
     db.Cushion.findAll({
       where: {
         id: req.body.id
       }
     }).then(function(result) {
-      // console.log("HBS", hbsObject.cushions[0].dataValues.scanner_number);
-      res.locals.result = result;
-      next();
-    });
-  },
-  function(req, res) {
-    convertStringToInt(req.body.id);
-    var hbsObject = {
-      cushions: res.locals.result
-    }
-    console.log("HBS", hbsObject);
-   res.render("cushion-info", hbsObject);
+      return res.json(result);
   });
+});
 
 
   app.put("/new-cushion/:id"), function(req, res) {

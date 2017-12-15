@@ -3,6 +3,10 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var path = require("path");
+var Highcharts = require('highcharts');
+
+// Load module after Highcharts is loaded
+// require('highcharts/modules/exporting')(Highcharts);
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -31,6 +35,8 @@ app.set("view engine", "handlebars");
 require("./controllers/html-routes.js")(app);
 require("./controllers/cushion-routes.js")(app);
 require("./controllers/facilities.js")(app);
+require("./controllers/sensor-data.js")(app);
+// require("./public/Javascript/home.js")(highChart);
 
 // Sync to local MySQL DB and start server
 db.sequelize.sync({

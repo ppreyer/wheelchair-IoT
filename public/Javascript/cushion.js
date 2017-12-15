@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   var scanner = $("#scan-number").val();
   var location = $("#location").val();
@@ -7,6 +8,34 @@ $(document).ready(function() {
   $(document).on("click", ".submit", addCushion);
   $(document).on("click", ".update", editCushion);
   $(document).on("click", ".cushion-info", displayCushionInfo);
+
+function renderChart () { 
+    var myChart = Highcharts.chart('chart', {
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Fruit Consumption'
+        },
+        xAxis: {
+            categories: ['Apples', 'Bananas', 'Oranges']
+        },
+        yAxis: {
+            title: {
+                text: 'Fruit eaten'
+            }
+        },
+        series: [{
+            name: 'Jane',
+            data: [1, 0, 4]
+        }, {
+            name: 'John',
+            data: [5, 7, 3]
+        }]
+    });
+};
+
+renderChart();
 
 });
 
@@ -18,7 +47,9 @@ function displayCushionInfo(event) {
     id: cushionId
   }
   $.post("/cushion-info", cushionObject).then(function(data) {
-    
+    location.assign("http://localhost:3000/cushion-info");
+    console.log("I got here");
+    $(".container").html('Hello World');
   });
 }
 

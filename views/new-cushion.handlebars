@@ -2,6 +2,8 @@
 
 <div class="container">
  
+<div class="chart" id="chart" style="width:100%; height:400px;"></div>
+
   <div>
   {{#each cushions}}
     <p>{{this.scanner_number}}</p>
@@ -25,29 +27,6 @@
         <span class="input-group-addon">@</span>
         <input type="text" class="form-control cushion"  id="location" placeholder="Facility Location"  aria-describedby="sizing-addon2">
       </div>
-{{!--       <div class="input-group">
-        <span class="input-group-addon">@</span>
-        <input type="text" class="form-control cushion"  id="facility-id" placeholder="Facility ID"  aria-describedby="sizing-addon2">
-      </div> --}}
-
-
-<select name="facility">
-  {{#each facilities}}
-    <option class="facility-id" value="{{this.id}}">{{this.location}}</option>
-  {{/each}}
-</select>
-
-
- {{!--  <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Facility ID
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      {{#each facilities}}
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{this.location}}</a></li> 
-      {{/each}}
-    </ul>
-  </div><br> --}}
-
       <button type="button" class="btn btn-primary submit">Add Cushion</button>
 
       <div class="input-group">
