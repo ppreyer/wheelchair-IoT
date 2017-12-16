@@ -9,7 +9,7 @@ $(document).ready(function() {
 function addDataPoint(event) {
   event.preventDefault();
   var spring_rate = $("#spring_rate").val().trim();
-  var CushionId = $("#cushion-id").val().trim();
+  var CushionId = $(".cushion-id").val().trim();
   var newDataPoint = {
     spring_rate: spring_rate,
     CushionId: CushionId

@@ -27,6 +27,18 @@
         <span class="input-group-addon">@</span>
         <input type="text" class="form-control cushion"  id="location" placeholder="Facility Location"  aria-describedby="sizing-addon2">
       </div>
+{{!--       <div class="input-group">
+        <span class="input-group-addon">@</span>
+        <input type="text" class="form-control cushion"  id="facility-id" placeholder="Facility ID"  aria-describedby="sizing-addon2">
+      </div> --}}
+
+
+<select name="facility">
+  {{#each facilities}}
+    <option class="facility-id" value="{{this.id}}">{{this.location}}</option>
+  {{/each}}
+</select>
+
       <button type="button" class="btn btn-primary submit">Add Cushion</button>
 
       <div class="input-group">
@@ -37,4 +49,71 @@
 
     </div>
   </div>
+
+  <div class="row">
+  <div class="col-md-6 m-b-md">
+    <div class="list-group">
+      <h4 class="list-group-header">
+        Facilities
+      </h4>
+      
+        <a class="list-group-item" href="#">
+          <span class="list-group-progress" style="width: 62.4%;"></span>
+          <span class="pull-right text-muted">62.4%</span>
+          Heartland - Cone Hospital
+        </a>
+      
+        <a class="list-group-item" href="#">
+          <span class="list-group-progress" style="width: 15.0%;"></span>
+          <span class="pull-right text-muted">15.0%</span>
+          Winston Salem Health and Rehab
+        </a>
+      
+        <a class="list-group-item" href="#">
+          <span class="list-group-progress" style="width: 5.0%;"></span>
+          <span class="pull-right text-muted">5.0%</span>
+          Countryside Manor
+        </a>
+      
+        <a class="list-group-item" href="#">
+          <span class="list-group-progress" style="width: 5.0%;"></span>
+          <span class="pull-right text-muted">5.0%</span>
+          Graybrier Health and Rehab
+        </a>
+      
+        <a class="list-group-item" href="#">
+          <span class="list-group-progress" style="width: 4.5%;"></span>
+          <span class="pull-right text-muted">4.5%</span>
+          Shannon Gray Health and Rehab
+        </a>
+      
+        <a class="list-group-item" href="#">
+          <span class="list-group-progress" style="width: 2.3%;"></span>
+          <span class="pull-right text-muted">2.3%</span>
+          Mexico
+        </a>
+      
+        <a class="list-group-item" href="#">
+          <span class="list-group-progress" style="width: 1.7%;"></span>
+          <span class="pull-right text-muted">1.7%</span>
+          Spain
+        </a>
+      
+        <a class="list-group-item" href="#">
+          <span class="list-group-progress" style="width: 1.5%;"></span>
+          <span class="pull-right text-muted">1.5%</span>
+          France
+        </a>
+      
+        <a class="list-group-item" href="#">
+          <span class="list-group-progress" style="width: 1.4%;"></span>
+          <span class="pull-right text-muted">1.4%</span>
+          South Africa
+        </a>
+      
+        <a class="list-group-item" href="#">
+          <span class="list-group-progress" style="width: 1.2%;"></span>
+          <span class="pull-right text-muted">1.2%</span>
+          Japan
+        </a>
 </div>

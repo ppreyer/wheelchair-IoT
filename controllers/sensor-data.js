@@ -2,6 +2,28 @@ var db = require("../models");
 
 module.exports = function(app) {
 
+  app.get("/dummy-data", function (req, res, next) {
+     db.Cushion.findAll({}).then(function(result) {
+      var cushionObject = {
+        cushions: result
+      }
+      res.locals.result = result;
+      console.log("CUSHION", cushionObject);
+     next()
+    });
+  },
+    function(req, res) {
+
+    db.Sensor.findAll({}).then(function(result) {
+      var hbsObject = {
+        sensors: result,
+        cushions: res.locals.result
+      }
+      return res.render("dummy-data", hbsObject);
+    });
+  });
+
+
 app.post("/dummy-data", function(req, res) {
     convertStringToInt(req.body.CushionId);
     convertStringToInt(req.body.spring_rate);

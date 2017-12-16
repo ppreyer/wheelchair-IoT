@@ -21,8 +21,8 @@ module.exports = function(app) {
     return res.render("cushion-info");
   });
 
-app.get("/dummy-data", function(req, res) {
-    return res.render("dummy-data");
-  });
+// app.get("/dummy-data", function(req, res) {
+//     return res.render("dummy-data");
+//   });
 
 };

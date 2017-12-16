@@ -4,10 +4,11 @@
         <span class="input-group-addon">@</span>
         <input type="text" class="form-control cushion" id="spring_rate" placeholder="Scanner Number"  aria-describedby="sizing-addon2">
       </div>
-      <div class="input-group">
-        <span class="input-group-addon">@</span>
-        <input type="text" class="form-control cushion"  id="cushion-id" placeholder="Cusion Id"  aria-describedby="sizing-addon2">
-      </div>
-    </div>
+  <select name="cushion">
+  {{#each cushions}}
+    <option class="cushion-id" value="{{this.id}}">{{this.id}}</option>
+  {{/each}}
+</select>
+</div>
   </div>
       <button type="button" class="btn btn-primary data-submit">Add Censor Data</button>
