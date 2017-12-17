@@ -9,33 +9,33 @@ $(document).ready(function() {
   $(document).on("click", ".update", editCushion);
   $(document).on("click", ".cushion-info", displayCushionInfo);
 
-function renderChart () { 
-    var myChart = Highcharts.chart('chart', {
-        chart: {
-            type: 'bar'
-        },
-        title: {
-            text: 'Fruit Consumption'
-        },
-        xAxis: {
-            categories: ['Apples', 'Bananas', 'Oranges']
-        },
-        yAxis: {
-            title: {
-                text: 'Fruit eaten'
-            }
-        },
-        series: [{
-            name: 'Jane',
-            data: [1, 0, 4]
-        }, {
-            name: 'John',
-            data: [5, 7, 3]
-        }]
-    });
-};
+// function renderChart () { 
+//     var myChart = Highcharts.chart('chart', {
+//         chart: {
+//             type: 'bar'
+//         },
+//         title: {
+//             text: 'Fruit Consumption'
+//         },
+//         xAxis: {
+//             categories: ['Apples', 'Bananas', 'Oranges']
+//         },
+//         yAxis: {
+//             title: {
+//                 text: 'Fruit eaten'
+//             }
+//         },
+//         series: [{
+//             name: 'Jane',
+//             data: [1, 0, 4]
+//         }, {
+//             name: 'John',
+//             data: [5, 7, 3]
+//         }]
+//     });
+// };
 
-renderChart();
+// renderChart();
 
 });
 
@@ -57,13 +57,13 @@ function addCushion(event) {
   event.preventDefault();
   var scanner = $("#scan-number").val().trim();
   console.log("SCANNER", scanner);
-  var location = $("#location").val().trim();
-  console.log("LOCATION", location);
-  var facilityId = $(".facility-id").val().trim();
+  // var location = $("#location").val().trim();
+  var facilityId = $("#facilitySelect").val();
+  console.log("ID", facilityId);
   // var facilityId = $("#facility-id").val().trim();
   var newCushion = {
     scanner_number: scanner,
-    facility_location: location,
+    // facility_location: location,
     FacilityId: facilityId
   };
   console.log("NEW CUSH", newCushion);

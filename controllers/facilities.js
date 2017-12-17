@@ -3,14 +3,28 @@ var db = require("../models");
 module.exports = function(app) {
   // Add a new facility to database
 
-  app.get("/home", function(req, res) {
+  app.get("/home", function(req, res, next) {
     db.Facility.findAll({}).then(function(result) {
-      var hbsObject = {
+      var facilityObject = {
         facilities: result
-      };
+      }
+      res.locals.result = result;
+      next();
+    });
+  },
+    function(req, res) {
+
+    db.Cushion.findAndCountAll({}).then(function(result) {
+      var hbsObject = {
+        cushions: result,
+        facilities: res.locals.result
+      }
+      // return res.json(result);
       return res.render("home", hbsObject);
     });
   });
+ 
+
 
   app.get("/facilities", function(req, res) {
     db.Facility.findAll({
@@ -29,7 +43,7 @@ module.exports = function(app) {
       location: req.body.location
     }
     db.Facility.create(newFacility).then(function(result) {  
-      // console.log("NEW", result);
+      console.log("NEW", result);
       return res.json(result);
     });
   })

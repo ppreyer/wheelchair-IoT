@@ -1,25 +1,19 @@
 $(document).ready(function() {
   $(document).on("click", ".facility-submit", addFacility);
+  // $(".facility-submit").on("click", addFacility);
+});
 
 function addFacility(event) {
   event.preventDefault();
-  var location = $("#facility-location").val();
+  var location = $("#facility-location").val().trim();
   var newFacility = {
     location: location
   };
-  $.post("/home", newFacility, getFacilities);
+  $.post("/home", newFacility, function(data) {
+    console.log("I got here");
+  });
   $("#facility-location").val("");
 };
 
-function getFacilities() {
-  console.log("I got here");
-    $.get("/home", function(err, data) {
-        // burgers = data;
-        console.log('DATA', data);
-        window.location.reload();
-    });
-};
-
-});
 
 

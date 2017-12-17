@@ -6,22 +6,32 @@ module.exports = function(app) {
   
   app.get("/new-cushion", function (req, res, next) {
      db.Facility.findAll({}).then(function(result) {
-      var facilityObject = {
-        facilities: result
-      }
       res.locals.result = result;
-      console.log(facilityObject);
-     next()
+      // console.log(facilityObject);
+     next();
     });
   },
+  // function (req, res, next) {
+  //    db.Facility.findAll({}).then(function(result) {
+  //     var facilityObject = {
+  //       facilities: result
+  //     }
+  //     res.locals.result = result;
+  //     // console.log(facilityObject);
+  //    next();
+  //   });
+  // },  
     function(req, res) {
 
-    db.Cushion.findAll({}).then(function(result) {
+    db.Facility.findAndCountAll({
+      include: [ { model: db.Cushion, required: 'left' }],
+      where: id = db.Cushion.FacilityId
+    }).then(function(result) {
       var hbsObject = {
-        cushions: result,
+        facilitiesCount: result,
         facilities: res.locals.result
       }
-      console.log();
+      console.log("COUNT", result.count);
       return res.render("new-cushion", hbsObject);
     });
   });
@@ -30,14 +40,14 @@ module.exports = function(app) {
   app.post("/new-cushion", function(req, res) {
     convertStringToInt(req.body.scanner_number);
     convertStringToInt(req.body.FacilityId);
-    console.log("BODY", req.body.FacilityId);
+    // console.log("BODY", req.body.FacilityId);
     var newCushion = {
       scanner_number: req.body.scanner_number,
-      facility_location: req.body.facility_location,
+      // facility_location: req.body.facility_location,
       FacilityId: req.body.FacilityId
     }
     db.Cushion.create(newCushion).then(function(result) {  
-      console.log("NEW", result)
+      // console.log("NEW", result)
       return res.json(result);
     });
   });
