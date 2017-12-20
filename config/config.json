@@ -4,6 +4,7 @@
     "password": "i4kchwaku9yl22hk",
     "database": "ah86debl2m16y61c",
     "host": "ol5tz0yvwp930510.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "port": 3306,
     "dialect": "mysql"
   },
   "test": {
@@ -11,6 +12,7 @@
     "password": "i4kchwaku9yl22hk",
     "database": "ah86debl2m16y61c",
     "host":"ol5tz0yvwp930510.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "port": 3306,
     "dialect": "mysql"
   },
   "production": {
