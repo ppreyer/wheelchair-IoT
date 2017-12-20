@@ -11,7 +11,7 @@ var CurrentDate = moment();
 // require('highcharts/modules/exporting')(Highcharts);
 
 var app = express();
-var PORT = process.env.PORT || 3306;
+var PORT = process.env.PORT || 3000;
 
 var db = require("./models");
 
