@@ -9,35 +9,15 @@ $(document).ready(function() {
   $(document).on("click", ".update", editCushion);
   $(document).on("click", ".cushion-info", displayCushionInfo);
 
-function renderChart () { 
-    var myChart = Highcharts.chart('chart', {
-        chart: {
-            type: 'bar'
-        },
-        title: {
-            text: 'Fruit Consumption'
-        },
-        xAxis: {
-            categories: ['Apples', 'Bananas', 'Oranges']
-        },
-        yAxis: {
-            title: {
-                text: 'Fruit eaten'
-            }
-        },
-        series: [{
-            name: 'Jane',
-            data: [1, 0, 4]
-        }, {
-            name: 'John',
-            data: [5, 7, 3]
-        }]
-    });
-};
-
-renderChart();
-
 });
+
+  function displayLocalFacility(event) {
+    event.preventDefault();
+    $(event.target).html();
+    var facilityNumber = $(event.target).html();
+    var facilityNumber = $(".graphs").val();
+      window.location = '/facility?id=' + facilityNumber
+  };
 
 function displayCushionInfo(event) {
   event.preventDefault();
@@ -48,7 +28,6 @@ function displayCushionInfo(event) {
   }
   $.post("/cushion-info", cushionObject).then(function(data) {
     location.assign("http://localhost:3000/cushion-info");
-    console.log("I got here");
     $(".container").html('Hello World');
   });
 }
@@ -56,21 +35,14 @@ function displayCushionInfo(event) {
 function addCushion(event) {
   event.preventDefault();
   var scanner = $("#scan-number").val().trim();
-  console.log("SCANNER", scanner);
-  var location = $("#location").val().trim();
-  console.log("LOCATION", location);
-  var facilityId = $(".facility-id").val().trim();
-  // var facilityId = $("#facility-id").val().trim();
+  var facilityId = $("#facilitySelect").val();
   var newCushion = {
-    scanner_number: scanner,
-    facility_location: location,
+    spring_rate: scanner,
     FacilityId: facilityId
   };
-  console.log("NEW CUSH", newCushion);
   $.post("/new-cushion", newCushion).then(function(data) {
     // $(".cushion").val("");
     window.location.reload();
-    console.log("CUSH ADDED", data);
   });
 };
 
@@ -82,17 +54,11 @@ function editCushion(event) {
   var newCushion = {
     scanner_number: editScanner,
     facility_location: editLocation,
-    // FacilityId: facilityId
   };
-  console.log("EDIT CUSH", newCushion);
   var id = editScanner;
-  console.log("ID", id);
   $.ajax({
     url: "/new-cushion/" + id,
     method: "PUT",
     data: newCushion
-    // success: function(result) {
-    //   console.log("EDITED CUSHION", result);
-    // }
   });
 };

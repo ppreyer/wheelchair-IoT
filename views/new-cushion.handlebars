@@ -1,119 +1,110 @@
-<h1>Create a new cushion here!</h1>
-
 <div class="container">
- 
-<div class="chart" id="chart" style="width:100%; height:400px;"></div>
+    <div class="row">
+        <div class="col-sm-3 sidebar">
+            <nav class="sidebar-nav">
+                <div class="sidebar-header">
+                    <button class="nav-toggler nav-toggler-sm sidebar-toggler" type="button" data-toggle="collapse" data-target="#nav-toggleable-sm">
+                    <span class="sr-only">Toggle nav</span>
+                  </button>
+                    <a class="sidebar-brand img-responsive" href="index.html">
+                  </a>
+                </div>
+                <ul class="nav nav-pills nav-stacked">
+                    <li>
+                        <a href="/home">Overview</a>
+                    </li>
+                    <li class="active">
+                        <a href="/new-cushion">Cushions</a>
+                    </li>
+                    <li>
+                        <a href="/facilities">Facilities</a>
+                    </li>
+                </ul>
+                <hr class="visible-xs m-t">
+                <hr>
 
-  <div>
-  {{#each cushions}}
-    <p>{{this.scanner_number}}</p>
-    <p>{{this.facility_location}}</p>
-  {{/each}}
-  </div>
+                <div class="flextable table-actions">
+                    <div class="flextable-item flextable-primary">
+                        <div class="btn-toolbar-item input-with-icon">
+                            <select id="facilitySelect" name="facility">
+      <option selected disabled>Select a Facility</option>
+    {{#each facilities}}
+      <option class="facility-id" value="{{this.id}}">{{this.location}}</option>
+    {{/each}}
+  </select>
+                            <br>
+                            <br>
+                            <input type="text" class="form-control cushion" id="scan-number" placeholder="Enter Cushion Spring Rate" aria-describedby="sizing-addon2">
+                            <br>
+                            <button type="button" class="btn btn-primary submit">Add Cushion</button>
+                        </div>
 
-<div>
-  {{#each facilities}}
-    <p>{{this.location}}</p>
-  {{/each}}
-</div>
- 
-  <div class="row">
-    <div class="col-md-6">
-      <div class="input-group">
-        <span class="input-group-addon">@</span>
-        <input type="text" class="form-control cushion" id="scan-number" placeholder="Scanner Number"  aria-describedby="sizing-addon2">
-      </div>
-      <div class="input-group">
-        <span class="input-group-addon">@</span>
-        <input type="text" class="form-control cushion"  id="location" placeholder="Facility Location"  aria-describedby="sizing-addon2">
-      </div>
-{{!--       <div class="input-group">
-        <span class="input-group-addon">@</span>
-        <input type="text" class="form-control cushion"  id="facility-id" placeholder="Facility ID"  aria-describedby="sizing-addon2">
-      </div> --}}
+                    </div>
+            </nav>
+            </div>
+
+            <div class="col-sm-9 content">
+                <div class="dashhead">
+                    <div class="dashhead-titles">
+                        <h2 class="dashhead-title">Active Facilities</h2>
+                    </div>
+
+                </div>
+
+                <div class="flextable table-actions">
+                    <div class="flextable-item flextable-primary">
+                        <div class="btn-toolbar-item input-with-icon">
+                        </div>
+                    </div>
+                    <div class="flextable-item">
+                    </div>
+                </div>
+
+                <div class="table-full">
+                    <div class="table-responsive">
+                        <table class="table" data-sort="table">
+                            <thead>
+                                <tr>
+                                    <th>Facility Number</th>
+                                    <th>Facility Name</th>
+                                    <th>Description</th>
+                                    <th>Total Cushions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                {{#each facilities}}
+                                <tr>
+                                    <td><a class="graphs" href="/facilities?tagId={{dataValues.id}}">#{{dataValues.id}}</a></td>
+                                    <td>{{dataValues.location}}</td>
+                                    <td>This is a great hospital</td>
+                                    <td>{{dataValues.count}}</td>
+                                </tr>
+                                {{/each}}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
 
-<select name="facility">
-  {{#each facilities}}
-    <option class="facility-id" value="{{this.id}}">{{this.location}}</option>
-  {{/each}}
-</select>
 
-      <button type="button" class="btn btn-primary submit">Add Cushion</button>
+                <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
-      <div class="input-group">
-        <span class="input-group-addon">@</span>
-        <input type="text" class="form-control edit" id="edit-scan-number" placeholder="Scanner Number"  aria-describedby="sizing-addon2">
-      </div>
-      <button type="button" class="btn btn-primary update">Update Cushion</button>
+                <script src="Javascript/cushion.js"></script>
+                <script src="Javascript/facilities.js"></script>
 
-    </div>
-  </div>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                <script src="https://code.highcharts.com/highcharts.js"></script>
+                <!--where you put the high charts library -->
+                <script src="/Javascript/home.js" type="text/javascript"></script>
+                <script src="/Javascript/dummyData.js" type="text/javascript"></script>
 
-  <div class="row">
-  <div class="col-md-6 m-b-md">
-    <div class="list-group">
-      <h4 class="list-group-header">
-        Facilities
-      </h4>
-      
-        <a class="list-group-item" href="#">
-          <span class="list-group-progress" style="width: 62.4%;"></span>
-          <span class="pull-right text-muted">62.4%</span>
-          Heartland - Cone Hospital
-        </a>
-      
-        <a class="list-group-item" href="#">
-          <span class="list-group-progress" style="width: 15.0%;"></span>
-          <span class="pull-right text-muted">15.0%</span>
-          Winston Salem Health and Rehab
-        </a>
-      
-        <a class="list-group-item" href="#">
-          <span class="list-group-progress" style="width: 5.0%;"></span>
-          <span class="pull-right text-muted">5.0%</span>
-          Countryside Manor
-        </a>
-      
-        <a class="list-group-item" href="#">
-          <span class="list-group-progress" style="width: 5.0%;"></span>
-          <span class="pull-right text-muted">5.0%</span>
-          Graybrier Health and Rehab
-        </a>
-      
-        <a class="list-group-item" href="#">
-          <span class="list-group-progress" style="width: 4.5%;"></span>
-          <span class="pull-right text-muted">4.5%</span>
-          Shannon Gray Health and Rehab
-        </a>
-      
-        <a class="list-group-item" href="#">
-          <span class="list-group-progress" style="width: 2.3%;"></span>
-          <span class="pull-right text-muted">2.3%</span>
-          Mexico
-        </a>
-      
-        <a class="list-group-item" href="#">
-          <span class="list-group-progress" style="width: 1.7%;"></span>
-          <span class="pull-right text-muted">1.7%</span>
-          Spain
-        </a>
-      
-        <a class="list-group-item" href="#">
-          <span class="list-group-progress" style="width: 1.5%;"></span>
-          <span class="pull-right text-muted">1.5%</span>
-          France
-        </a>
-      
-        <a class="list-group-item" href="#">
-          <span class="list-group-progress" style="width: 1.4%;"></span>
-          <span class="pull-right text-muted">1.4%</span>
-          South Africa
-        </a>
-      
-        <a class="list-group-item" href="#">
-          <span class="list-group-progress" style="width: 1.2%;"></span>
-          <span class="pull-right text-muted">1.2%</span>
-          Japan
-        </a>
-</div>
+
+                <script src="assets/js/jquery.min.js"></script>
+                <script src="assets/js/chart.js"></script>
+                <script src="assets/js/tablesorter.min.js"></script>
+                <script src="assets/js/toolkit.js"></script>
+                <script src="assets/js/application.js"></script>
+                <script>

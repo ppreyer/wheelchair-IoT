@@ -4,6 +4,8 @@ var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var path = require("path");
 var Highcharts = require('highcharts');
+var moment = require('moment');
+var CurrentDate = moment();
 
 // Load module after Highcharts is loaded
 // require('highcharts/modules/exporting')(Highcharts);
@@ -32,7 +34,6 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
-require("./controllers/html-routes.js")(app);
 require("./controllers/cushion-routes.js")(app);
 require("./controllers/facilities.js")(app);
 require("./controllers/sensor-data.js")(app);
@@ -44,5 +45,6 @@ db.sequelize.sync({
 }).then(function() {
     app.listen(PORT, function() {
         console.log("App listening on " + PORT);
+        console.log(CurrentDate);
     });
 });

@@ -1,23 +1,128 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidebar">
+            <nav class="sidebar-nav">
+                <div class="sidebar-header">
+                    <button class="nav-toggler nav-toggler-sm sidebar-toggler" type="button" data-toggle="collapse" data-target="#nav-toggleable-sm">
+                    <span class="sr-only">Toggle nav</span>
+                  </button>
+                    <a class="sidebar-brand img-responsive" href="index.html">
+                  </a>
+                </div>
+
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active">
+                        <a href="/home">Overview</a>
+                    </li>
+                    <li>
+                        <a href="/new-cushion">Cushions</a>
+                    </li>
+                    <li>
+                        <a href="/facilities">Facilities</a>
+                    </li>
+                </ul>
+                <hr class="visible-xs m-t">
+                <hr>
+
+                <div class="collapse nav-toggleable-sm" id="nav-toggleable-sm">
+                    <form class="sidebar-form">
+                        <input type="text" class="form-control" id="facility-location" placeholder="Facility Location" aria-describedby="sizing-addon2">
+                        <br>
+                        <button type="button" class="btn btn-primary facility-submit">Add Facility</button>
+                    </form>
+
+                </div>
+            </nav>
+        </div>
+        <div class="col-sm-9 content">
+            <div class="dashhead">
+                <div class="dashhead-titles">
+                    <h2 class="dashhead-title">Overview</h2>
+                </div>
+            </div>
+
+            <hr class="m-t">
+            <div class="hr-divider m-t-md m-b">
+                <h3 class="hr-divider-content hr-divider-heading">Quick stats</h3>
+            </div>
+
+            <div class="row statcards">
+                <div class="col-sm-6 col-lg-3 m-b">
+                    <div class="statcard statcard-success">
+                        <div class="p-a">
+                            <span class="statcard-desc">Total Facilities</span>
+                            <h2 class="statcard-number">
+                                {{facilities.count}}
+                            </h2>
+                            <hr class="statcard-hr m-b-0">
+                        </div>
+                        <canvas id="sparkline1" width="378" height="94" class="sparkline" data-chart="spark-line" data-value="[{data:[28,68,41,43,96,45,100]}]" data-labels="['a','b','c','d','e','f','g']" style="width: 189px; height: 47px;"></canvas>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 m-b">
+                    <div class="statcard statcard-danger">
+                        <div class="p-a">
+                            <span class="statcard-desc">Cushions in use</span>
+                            <h2 class="statcard-number">
+                                {{cushions.count}}
+                            </h2>
+                            <hr class="statcard-hr m-b-0">
+                        </div>
+                        <canvas id="sparkline1" width="378" height="94" class="sparkline" data-chart="spark-line" data-value="[{data:[4,34,64,27,96,50,80]}]" data-labels="['a', 'b','c','d','e','f','g']" style="width: 189px; height: 47px;"></canvas>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 m-b">
+                    <div class="statcard statcard-info">
+                        <div class="p-a">
+                            <span class="statcard-desc">Near safe limit</span>
+                            <h2 class="statcard-number">
+                                {{lowRate.count}}
+                            </h2>
+                            <hr class="statcard-hr m-b-0">
+                        </div>
+                        <canvas id="sparkline1" width="378" height="94" class="sparkline" data-chart="spark-line" data-value="[{data:[12,38,32,60,36,54,68]}]" data-labels="['a', 'b','c','d','e','f','g']" style="width: 189px; height: 47px;"></canvas>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 m-b">
+                    <div class="statcard statcard-warning">
+                        <div class="p-a">
+                            <span class="statcard-desc">Need replacing</span>
+                            <h2 class="statcard-number">
+                                {{spring_rate.count}}
+                            </h2>
+                            <hr class="statcard-hr m-b-0">
+                        </div>
+                        <canvas id="sparkline1" width="378" height="94" class="sparkline" data-chart="spark-line" data-value="[{data:[43,48,52,58,50,95,100]}]" data-labels="['a', 'b','c','d','e','f','g']" style="width: 189px; height: 47px;"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="m-t">
+
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+        <script src="Javascript/cushion.js"></script>
+        <script src="Javascript/facilities.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <!--where you put the high charts library -->
+        <script src="/Javascript/home.js" type="text/javascript"></script>
+        <script src="/Javascript/dummyData.js" type="text/javascript"></script>
 
 
-{{!-- <div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="input-group">
-        <span class="input-group-addon">@</span>
-        <input type="text" class="form-control facility"  id="facility-location" placeholder="Facility Location"  aria-describedby="sizing-addon2">
-      </div>
-      <button type="button" class="btn btn-primary facility-submit">Add Facility</button>
-      <div> --}}
-  {{!-- put html in here --}}
-
-
-  {{#each facilities}}
-    <div>
-      {{this.location}}
-    </div>
-  {{/each}}
-</div>
-    </div>
-  </div>
-</div>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/chart.js"></script>
+        <script src="assets/js/tablesorter.min.js"></script>
+        <script src="assets/js/toolkit.js"></script>
+        <script src="assets/js/application.js"></script>
+        <script>
+            // execute/clear BS loaders for docs
+            $(function() {
+                while (window.BS && window.BS.loader && window.BS.loader.length) {
+                    (window.BS.loader.pop())()
+                }
+            })
+        </script>
