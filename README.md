@@ -1,5 +1,5 @@
 # Smart Cushion App
-A web and mobile application that allows an end user to easily track the inventory of their smart cushions.  An end user might be a manager of a cushion manufacturing plant, a nurse managing wheelchair cushions for his/her patients, or a sales rep deciding on facilities that need new wheelchair cushions.
+A web and mobile application that allows an end user to easily track the inventory of their smart cushions.  A potential end user might fit the following use cases: a manager of a cushion manufacturing plant, a nurse managing wheelchair cushions for his/her patients, or a sales rep deciding on facilities that need new wheelchair cushions.
 
 ## Running the App
 This app is hosted on Heroku and can be visted here: https://floating-eyrie-92880.herokuapp.com/home.
