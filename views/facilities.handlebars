@@ -1,16 +1,55 @@
-<h1>Display Local Facility Data Here!</h1>
-<div>
-  
-{{!-- put html in here --}}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidebar">
+            <nav class="sidebar-nav">
+                <div class="sidebar-header">
+                    <button class="nav-toggler nav-toggler-sm sidebar-toggler" type="button" data-toggle="collapse" data-target="#nav-toggleable-sm">
+                    <span class="sr-only">Toggle nav</span>
+                  </button>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li>
+                            <a href="/home">Overview</a>
+                        </li>
+                        <li>
+                            <a href="/new-cushion">Cushions</a>
+                        </li>
+                        <li class="active">
+                            <a href="/facilities">Facilities</a>
+                        </li>
+                    </ul>
+                    <hr class="visible-xs m-t">
+                </div>
+            </nav>
+        </div>
+        <div class="col-sm-9 content">
+            <div class="dashhead">
+
+                <div class="hr-divider m-y-md">
+                    <ul class="nav nav-pills hr-divider-content hr-divider-nav" role="tablist">
+                        <li class='active' role="presentation">
+                            <a href="#inventory" role="tab" data-toggle="tab" aria-controls="inventory">Cushion Inventory</a>
+                        </li>
+                    </ul>
+                </div>
 
 
+                <div role="tabpanel" class="tab-pane" id="inventory">
+                    <div class="ex-line-graphs">
+                        <canvas class="ex-line-graph" width="600" height="400" data-chart="bar" data-scale-line-color="transparent" data-scale-grid-line-color="rgba(255,255,255,.05)" data-scale-font-color="#a2a2a2" data-labels="['Cushions in Use','Near Safety Limit','Need Replacment']" data-value="[{ label: 'First dataset', data: [{{facilities.count}}, {{lowRate.count}}, {{spring_rate.count}}] }{{!-- , { label: 'Second dataset', data: [28, 48, 40] } --}}]" </canvas>
+                    </div>
+                </div>
 
-  {{#each facilities}}
-    <p>{{this.location}}</p>
-    {{#each this.Cushions}}
-    <p>{{this.scanner_number}}</p>
-    <button type="button" class="btn btn-primary cushion-info" id="{{this.id}}">Show Cushion</button>
-    <p>{{this.spring_rate}}</p>
-    {{/each}}
-  {{/each}}
-</div>
+
+                <script src="../assets/js/jquery.min.js"></script>
+                <script src="../assets/js/chart.js"></script>
+                <script src="../assets/js/tablesorter.min.js"></script>
+                <script src="../assets/js/toolkit.js"></script>
+                <script src="../assets/js/application.js"></script>
+                <script>
+                    // execute/clear BS loaders for docs
+                    $(function() {
+                        while (window.BS && window.BS.loader && window.BS.loader.length) {
+                            (window.BS.loader.pop())()
+                        }
+                    })
+                </script>
