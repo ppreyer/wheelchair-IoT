@@ -4,7 +4,6 @@
     "password": "i4kchwaku9yl22hk",
     "database": "ah86debl2m16y61c",
     "host": "ol5tz0yvwp930510.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "socketPath": "/var/run/mysqld/mysqld.sock",
     "dialect": "mysql"
   },
   "test": {
@@ -12,7 +11,6 @@
     "password": "i4kchwaku9yl22hk",
     "database": "ah86debl2m16y61c",
     "host":"ol5tz0yvwp930510.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "socketPath": "/var/run/mysqld/mysqld.sock",
     "dialect": "mysql"
   },
   "production": {
