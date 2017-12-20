@@ -46,19 +46,19 @@
             <div class="col-sm-9 content">
                 <div class="dashhead">
                     <div class="dashhead-titles">
-                        <h2 class="dashhead-title">Active Facilities</h2>
+                        <h2 class="dashhead-title">Cushion Information by Active Facility</h2>
                     </div>
 
                 </div>
 
-                <div class="flextable table-actions">
+ {{!--                <div class="flextable table-actions">
                     <div class="flextable-item flextable-primary">
                         <div class="btn-toolbar-item input-with-icon">
                         </div>
                     </div>
                     <div class="flextable-item">
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="table-full">
                     <div class="table-responsive">
@@ -77,7 +77,7 @@
                                 <tr>
                                     <td><a class="graphs" href="/facilities?tagId={{dataValues.id}}">#{{dataValues.id}}</a></td>
                                     <td>{{dataValues.location}}</td>
-                                    <td>This is a great hospital</td>
+                                    <td>Add facility description</td>
                                     <td>{{dataValues.count}}</td>
                                 </tr>
                                 {{/each}}
